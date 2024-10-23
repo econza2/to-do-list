@@ -6,8 +6,7 @@ import { appendProjects } from "./appendProjectsDOM";
 import { appendToDo } from "./appendToDoDOM";
 
 let projects = ["Default"];
-let projectsToDo = [{Default: []}];
-
+let projectsToDo = [{ Default: [] }];
 
 const body = document.querySelector("body");
 
@@ -34,10 +33,10 @@ createProjectButton.textContent = "Create Project";
 buttonsDiv.appendChild(createProjectButton);
 
 createProjectButton.addEventListener("click", () => {
-    buttonsDiv.textContent = "";
-    buttonsDiv.appendChild(createProjectButton);
-    buttonsDiv.appendChild(createToDoButton);
-    buttonsDiv.appendChild(createProjectForm(projects, projectsToDo));
+  buttonsDiv.textContent = "";
+  buttonsDiv.appendChild(createProjectButton);
+  buttonsDiv.appendChild(createToDoButton);
+  buttonsDiv.appendChild(createProjectForm(projects, projectsToDo));
 });
 
 //To Do Form Manipulation
@@ -46,32 +45,28 @@ createToDoButton.textContent = "Create To Do List";
 buttonsDiv.appendChild(createToDoButton);
 
 createToDoButton.addEventListener("click", () => {
-    buttonsDiv.textContent = "";
-    buttonsDiv.appendChild(createProjectButton);
-    buttonsDiv.appendChild(createToDoButton);
-    buttonsDiv.appendChild(createToDoForm(projects, projectsToDo));
-    createProjectButton.disabled = true;
+  buttonsDiv.textContent = "";
+  buttonsDiv.appendChild(createProjectButton);
+  buttonsDiv.appendChild(createToDoButton);
+  buttonsDiv.appendChild(createToDoForm(projects, projectsToDo));
+  createProjectButton.disabled = true;
 });
 
 //Document Load Event
 window.addEventListener("load", () => {
-    let projectsToDoArray = JSON.parse(localStorage.getItem("projectsToDo"));
-    let projectsArray = JSON.parse(localStorage.getItem("projects"));
+  let projectsToDoArray = JSON.parse(localStorage.getItem("projectsToDo"));
+  let projectsArray = JSON.parse(localStorage.getItem("projects"));
 
-    
-    if (!projectsToDoArray){
-        projects = projects;
-        projectsToDo = projectsToDo;
+  if (!projectsToDoArray) {
+    projects = projects;
+    projectsToDo = projectsToDo;
 
-        appendProjects(projects, projectsToDo);
-    }
-    else if(projectsToDoArray.length > 0) {
-        projects = projectsArray;
-        projectsToDo = projectsToDoArray;
+    appendProjects(projects, projectsToDo);
+  } else if (projectsToDoArray.length > 0) {
+    projects = projectsArray;
+    projectsToDo = projectsToDoArray;
 
-        appendProjects(projectsArray, projectsToDoArray);
-        appendToDo(projectsArray, projectsToDoArray);
-    }
-    
+    appendProjects(projectsArray, projectsToDoArray);
+    appendToDo(projectsArray, projectsToDoArray);
+  }
 });
-
