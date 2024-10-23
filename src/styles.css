@@ -1,0 +1,19 @@
+.single-project-title {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.single-heading {
+    grid-column: 1/8;
+}
+
+.projects-div {
+    display: flex;
+}
+
+.to-do-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
